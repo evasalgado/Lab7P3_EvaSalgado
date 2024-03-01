@@ -3,6 +3,7 @@
 class CuentaCheque: public CuentaBancaria{
 	double sobreGiro;
 public: 
+	CuentaCheque();
 	CuentaCheque(double balance, int NumCuenta, string Nombre, double sobreGiro);
 	double getSobreGiro();
 	void setSobleGiro(double sobreGiro);

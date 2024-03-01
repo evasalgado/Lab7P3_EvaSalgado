@@ -1,5 +1,7 @@
 #include "CuentaBancaria.h"
 #include <iostream>
+CuentaBancaria::CuentaBancaria(){
+}
 CuentaBancaria::CuentaBancaria(double balance, int NumCuenta, string Nombre) {
 	this->balance = balance;
 	this->NumCuenta = NumCuenta;

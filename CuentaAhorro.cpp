@@ -1,5 +1,7 @@
 #include "CuentaAhorro.h"
 #include <iostream>
+CuentaAhorro::CuentaAhorro():CuentaBancaria(){
+}
 CuentaAhorro::CuentaAhorro
 (double balance, int NumCuenta, string Nombre, double TasaInteres):
 	CuentaBancaria( balance, NumCuenta, Nombre){
@@ -13,7 +15,7 @@ void CuentaAhorro::setTasaInteres(double& TasaInteres) {
 }
 void CuentaAhorro:: depositar(double monto) {
 	/*double b = this->balance;*/
-	double bono = ((int)TasaInteres % 100)*monto;
+	double bono = ((int)TasaInteres %100)*monto;
 	this->balance += bono;
 }
 void CuentaAhorro::retirar(double monto)  {

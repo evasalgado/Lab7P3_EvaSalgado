@@ -1,6 +1,7 @@
 #include "CuentaCheque.h"
 #include "CuentaAhorro.h"
 #include <iostream>
+CuentaCheque::CuentaCheque():CuentaBancaria(){}
 CuentaCheque::
 CuentaCheque(double balance, int NumCuenta, string Nombre, double sobreGiro):
 CuentaBancaria(balance, NumCuenta, Nombre){

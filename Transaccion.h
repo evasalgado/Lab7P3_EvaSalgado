@@ -10,7 +10,7 @@ class Transaccion{
 	double monto;
 	string tipo;
 public: 
-	Transaccion(CuentaBancaria <T>& cuentaBancaria,
+	Transaccion(T* cuentaBancaria,
 		double& monto,string& tipo) {
 		this->cuentaBancaria = cuentaBancaria;
 		this->monto = monto;
@@ -19,7 +19,7 @@ public:
 	T* getCuentaBancaria() {
 		return cuentaBancaria;
 	}
-	void setCuentaBancaria(CuentaBancaria <T>& cuentaBancaria) {
+	void setCuentaBancaria(T* cuentaBancaria) {
 		this->cuentaBancaria = cuentaBancaria;
 	}
 	double getMonto() {
