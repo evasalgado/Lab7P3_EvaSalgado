@@ -1,19 +1,34 @@
-// Lab7P3_EvaSalgado.cpp : Este archivo contiene la función "main". La ejecución del programa comienza y termina ahí.
-//
-
 #include <iostream>
-
-int main()
-{
-    std::cout << "Hello World!\n";
-}
-
-// Ejecutar programa: Ctrl + F5 o menú Depurar > Iniciar sin depurar
-// Depurar programa: F5 o menú Depurar > Iniciar depuración
-
-// Sugerencias para primeros pasos: 1. Use la ventana del Explorador de soluciones para agregar y administrar archivos
-//   2. Use la ventana de Team Explorer para conectar con el control de código fuente
-//   3. Use la ventana de salida para ver la salida de compilación y otros mensajes
-//   4. Use la ventana Lista de errores para ver los errores
-//   5. Vaya a Proyecto > Agregar nuevo elemento para crear nuevos archivos de código, o a Proyecto > Agregar elemento existente para agregar archivos de código existentes al proyecto
-//   6. En el futuro, para volver a abrir este proyecto, vaya a Archivo > Abrir > Proyecto y seleccione el archivo .sln
+using namespace std;
+int main(){//Inicio de programa
+	int op = 0;
+	do{
+		cout << "--- Banco LCF---\n"<< //Menu
+			"1. Crear Cuenta\n"<<
+			"2. Realizar Deposito\n"<<
+			"3. Realizar Retiro\n"<<
+			"4. Mostrar Informacion de Cuenta\n"<<
+			"5. Eliminar Cuenta\n"<<
+			"6. Salir\n"<<
+			"Selecciona una opcion:"<<endl;
+		cin >> op;
+		switch (op){
+		case 1: //crear cuenta bancaria
+			break;
+		case 2: //realizar deposito a cuenta
+			break;
+		case 3: //realizar retiro de dinero
+			break;
+		case 4: //mostrar informacion de cuenta bancaria
+			break;
+		case 5:
+			break; //eliminar cuenta bancaria
+		case 6:
+			cout << "Gracias por utilizar mi programa";//salir de programa
+			break;
+		default:
+			cout << "Numero ingresado no es valido"<<endl; //numero ingresado no esta llamado en el switch
+			break;
+		}
+	} while (op!=6); //fin del while
+} // fin del programa
