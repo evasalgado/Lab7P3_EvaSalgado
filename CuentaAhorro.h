@@ -8,6 +8,7 @@ public:
 	void setTasaInteres(double& TasaInteres);
 	void depositar(double monto) ;
 	void retirar(double monto) ;
+	void imprimir();
 	~CuentaAhorro();
 };
 

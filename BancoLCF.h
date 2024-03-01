@@ -1,12 +1,12 @@
 #pragma once
 #include <vector>
-#include "Transaccion.h"
+#include "CuentaBancaria.h"
 class BancoLCF{
-	Transaccion <CuentaBancaria*> cuentas;
+	vector<CuentaBancaria*> cuentas;
 public: 
-	BancoLCF(Transaccion <CuentaBancaria*> cuentas);
-	Transaccion <CuentaBancaria*> getCuenta();
-	void setCuenta(Transaccion <CuentaBancaria*>& cuentas);
+	BancoLCF();
+	vector<CuentaBancaria*> getCuenta();
+	void setCuenta(vector<CuentaBancaria*>& cuentas);
 	void agregarCuenta(CuentaBancaria* cuenta);
 	void eliminarCuenta(int numCuenta);
 	void MostrarCuentas();

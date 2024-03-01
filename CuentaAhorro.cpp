@@ -27,6 +27,11 @@ void CuentaAhorro::retirar(double monto)  {
 		cout << "Monto excede los limites en balance"<<endl;
 	}
 }
+void CuentaAhorro::imprimir() {
+	CuentaBancaria::imprimir();
+	cout << "Tipo de cuenta: Ahorro"<<endl;
+	cout << "Tasa de interes: " << TasaInteres << endl;
+}
 CuentaAhorro::~CuentaAhorro() {
 	TasaInteres = 0.0;
 }

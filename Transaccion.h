@@ -1,6 +1,8 @@
 #pragma once
 #include <iostream>
 #include "CuentaBancaria.h"
+#include "CuentaAhorro.h"
+#include "CuentaCheque.h"
 using namespace std;
 template <typename T>
 class Transaccion{
@@ -9,8 +11,7 @@ class Transaccion{
 	string tipo;
 public: 
 	Transaccion(CuentaBancaria <T>& cuentaBancaria,
-		double& monto,
-		string& tipo) {
+		double& monto,string& tipo) {
 		this->cuentaBancaria = cuentaBancaria;
 		this->monto = monto;
 		this->tipo = tipo;
@@ -21,11 +22,29 @@ public:
 	void setCuentaBancaria(CuentaBancaria <T>& cuentaBancaria) {
 		this->cuentaBancaria = cuentaBancaria;
 	}
-
-	void ejecutarTransaccion() {
-
+	double getMonto() {
+		return monto;
 	}
-	~Transaccion();
+	void setMonto(double& monto) {
+		this->monto = monto;
+	}
+	string getTipo() {
+		return tipo;
+	}
+	void setTipo(string& tipo) {
+		this->tipo = tipo;
+	}
+	void ejecutarTransaccion() {
+		if (tipo=="Ahorro") {
+			
+		}else if (tipo=="Cheque") {
+			
+		}
+	}
+	~Transaccion() {
+		monto = 0;
+		tipo = "";
+	}
 
 };
 

@@ -1,4 +1,6 @@
 #include "CuentaCheque.h"
+#include "CuentaAhorro.h"
+#include <iostream>
 CuentaCheque::
 CuentaCheque(double balance, int NumCuenta, string Nombre, double sobreGiro):
 CuentaBancaria(balance, NumCuenta, Nombre){
@@ -15,6 +17,11 @@ void CuentaCheque::depositar(double monto) {
 }
 void CuentaCheque::retirar(double monto) {
 	this->balance -= (monto-sobreGiro);
+}
+void CuentaCheque::imprimir() {
+	CuentaBancaria::imprimir();
+	cout << "Tipo de cuenta: Cheque" << endl;
+	cout << "Sobre giro: " << sobreGiro << endl;
 }
 CuentaCheque::~CuentaCheque() {
 	sobreGiro = 0.0;

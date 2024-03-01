@@ -16,6 +16,7 @@ public:
 	void setNombre(string& Nombre);
 	virtual void depositar(double monto) const=0;
 	virtual void retirar(double monto) const=0;
+	virtual void imprimir() const = 0;
 	~CuentaBancaria();
 };
 

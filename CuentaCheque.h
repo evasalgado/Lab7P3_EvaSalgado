@@ -8,6 +8,7 @@ public:
 	void setSobleGiro(double sobreGiro);
 	void depositar(double monto);
 	void retirar(double monto);
+	void imprimir();
 	~CuentaCheque();
 };
 
