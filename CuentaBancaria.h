@@ -3,7 +3,7 @@
 using namespace std;
 class CuentaBancaria{
 protected: 
-	double balance;
+	double balance=0.0;
 	int NumCuenta;
 	string Nombre;
 public:

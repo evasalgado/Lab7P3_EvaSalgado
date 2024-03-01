@@ -5,9 +5,9 @@ class CuentaCheque: public CuentaBancaria{
 public: 
 	CuentaCheque(double balance, int NumCuenta, string Nombre, double sobreGiro);
 	double getSobreGiro();
-	void setDobleGiro(double sobreGiro);
-	virtual void depositar(double monto) const override;
-	virtual void retirar(double monto) const override;
+	void setSobleGiro(double sobreGiro);
+	void depositar(double monto);
+	void retirar(double monto);
 	~CuentaCheque();
 };
 

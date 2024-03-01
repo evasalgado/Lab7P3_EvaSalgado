@@ -5,9 +5,9 @@ class CuentaAhorro: public CuentaBancaria{
 public:
 	CuentaAhorro(double balance, int NumCuenta, string Nombre, double TasaInteres);
 	double getTasaInteres();
-	double setTasaInteres(double& TasaInteres);
-	virtual void depositar(double monto) const override;
-	virtual void retirar(double monto) const override;
+	void setTasaInteres(double& TasaInteres);
+	void depositar(double monto) ;
+	void retirar(double monto) ;
 	~CuentaAhorro();
 };
 
