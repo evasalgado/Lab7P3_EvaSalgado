@@ -21,13 +21,16 @@ void CuentaAhorro::setTasaInteres(double& TasaInteres) {
 void CuentaAhorro:: depositar(double monto) {
 	/*double b = this->balance;*/
 	double bono = ((int)TasaInteres %100)*monto;
+	cout << "Depositado: " << monto<<" con bono: "<<bono<<endl;
 	this->balance += bono;
+	cout << "Deposito hecho correctamente"<<endl;
 }
 void CuentaAhorro::retirar(double monto)  {
 	//double b = 0;
 	//b = this->balance;
 	if (monto<balance){
 		//b-=monto;
+		cout << "Retiro realizado correctamente" << endl;
 		this->balance -= monto;
 	}
 	else {

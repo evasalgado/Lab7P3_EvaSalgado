@@ -17,9 +17,11 @@ void CuentaCheque::setSobleGiro(double sobreGiro) {
 }
 void CuentaCheque::depositar(double monto) {
 	this->balance += monto;
+	cout << "Deposito hecho correctamente" << endl;
 }
 void CuentaCheque::retirar(double monto) {
 	this->balance -= (monto-sobreGiro);
+	cout << "Retiro realizado correctamente"<<endl;
 }
 void CuentaCheque::imprimir() {
 	CuentaBancaria::imprimir();

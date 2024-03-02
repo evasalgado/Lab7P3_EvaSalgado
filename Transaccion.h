@@ -5,13 +5,13 @@
 #include "CuentaCheque.h"
 using namespace std;
 template <typename T>
-class Transaccion{
+class Transaccion {
 	T* cuentaBancaria;
 	double monto;
 	string tipo;
-public: 
+public:
 	Transaccion(T* cuentaBancaria,
-		double& monto,string& tipo) {
+		double& monto, string& tipo) {
 		this->cuentaBancaria = cuentaBancaria;
 		this->monto = monto;
 		this->tipo = tipo;
@@ -35,11 +35,23 @@ public:
 		this->tipo = tipo;
 	}
 	void ejecutarTransaccion() {
-		if (tipo=="Ahorro") {
-			CuentaAhorro cb = cuentaBancaria<CuentaAhorro>;
-			cb.depositar();
-		}else if (tipo=="Cheque") {
-			
+		if (typeid(*cuentaBancaria) == typeid(CuentaAhorro)) {
+			CuentaAhorro* ca = dynamic_cast<CuentaAhorro*>(cuentaBancaria);
+			if (tipo == "Deposito") {
+				ca->depositar(monto);
+			}
+			else if (tipo == "Retiro") {
+				ca->retirar(monto);
+			}
+		}
+		else if (typeid(*cuentaBancaria) == typeid(CuentaCheque)) {
+			CuentaCheque* cc = dynamic_cast<CuentaCheque*>(cuentaBancaria);
+			if (tipo == "Deposito") {
+				cc->depositar(monto);
+			}
+			else if (tipo == "Retiro") {
+				cc->retirar(monto);
+			}
 		}
 	}
 	~Transaccion() {

@@ -50,7 +50,7 @@ void Agregar_Cuenta() {
 void Realizar_Deposito() {
 	lcf->MostrarCuentas();
 	int nc;
-	string type = "";
+	string type = "Deposito";
 	double monto = 0;
 	cout << "Numero de cuenta para el deposito: " <<endl;
 	cin >> nc;
@@ -60,14 +60,37 @@ void Realizar_Deposito() {
 			if (typeid(*cb2) == typeid(CuentaAhorro)) {
 				cout << "Cantidad a depositar: "<<endl;
 				cin >> monto;
-				type = "Ahorro";
 				Transaccion<CuentaAhorro> * t = new Transaccion<CuentaAhorro> (dynamic_cast<CuentaAhorro*>(cb2), monto, type);
 				t->ejecutarTransaccion();
 			}
 			else if (typeid(*cb2) == typeid(CuentaCheque)) {
 				cout << "Cantidad a depositar: " << endl;
 				cin >> monto;
-				type = "Cheque";
+				Transaccion<CuentaCheque>* t = new Transaccion<CuentaCheque>(dynamic_cast<CuentaCheque*>(cb2), monto, type);
+				t->ejecutarTransaccion();
+			}
+		}
+	}
+}
+void realizar_retiro() {
+	lcf->MostrarCuentas();
+	int nc;
+	string type = "Retiro";
+	double monto = 0;
+	cout << "Numero de cuenta para el deposito: " << endl;
+	cin >> nc;
+	for (int i = 0; i < lcf->getCuenta().size(); i++) {
+		if (lcf->getCuenta()[i]->getNumCuenta() == nc) {
+			CuentaBancaria* cb2 = lcf->getCuenta()[i];
+			if (typeid(*cb2) == typeid(CuentaAhorro)) {
+				cout << "Cantidad a retirar: " << endl;
+				cin >> monto;
+				Transaccion<CuentaAhorro>* t = new Transaccion<CuentaAhorro>(dynamic_cast<CuentaAhorro*>(cb2), monto, type);
+				t->ejecutarTransaccion();
+			}
+			else if (typeid(*cb2) == typeid(CuentaCheque)) {
+				cout << "Cantidad a retirar: " << endl;
+				cin >> monto;
 				Transaccion<CuentaCheque>* t = new Transaccion<CuentaCheque>(dynamic_cast<CuentaCheque*>(cb2), monto, type);
 				t->ejecutarTransaccion();
 			}
@@ -97,8 +120,10 @@ int main(){//Inicio de programa
 			Agregar_Cuenta();
 			break;
 		case 2: //realizar deposito a cuenta
+			Realizar_Deposito();
 			break;
 		case 3: //realizar retiro de dinero
+			realizar_retiro();
 			break;
 		case 4: //mostrar informacion de cuenta bancaria
 			lcf->MostrarCuentas();
