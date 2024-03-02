@@ -36,7 +36,8 @@ public:
 	}
 	void ejecutarTransaccion() {
 		if (tipo=="Ahorro") {
-			
+			CuentaAhorro cb = cuentaBancaria<CuentaAhorro>;
+			cb.depositar();
 		}else if (tipo=="Cheque") {
 			
 		}

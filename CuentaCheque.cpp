@@ -11,7 +11,9 @@ double CuentaCheque::getSobreGiro() {
 	return sobreGiro;
 }
 void CuentaCheque::setSobleGiro(double sobreGiro) {
-	this->sobreGiro = sobreGiro;
+	if (sobreGiro>=100.0&&sobreGiro<=350.0){
+		this->sobreGiro = sobreGiro;
+	}
 }
 void CuentaCheque::depositar(double monto) {
 	this->balance += monto;

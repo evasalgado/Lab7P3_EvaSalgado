@@ -1,7 +1,9 @@
 #include <iostream>
 #include "CuentaAhorro.h"
 #include "CuentaCheque.h"
+#include "Transaccion.h"
 #include "BancoLCF.h"
+#include <vector>
 using namespace std;
 BancoLCF* lcf = new BancoLCF();
 void Agregar_Cheque(int nc, string n, double b) {
@@ -24,14 +26,14 @@ void Agregar_Cuenta() {
 	string n;
 	double b;
 	cout << "Ingrese tipo de cuenta:\n"<<
-		"1. Ahorro"<<
+		"1. Ahorro\n"<<
 		"2. Cheque"<<endl;
 	cin >> op;
 	cout << "Numero de cuenta: ";
 	cin >> nc;
 	cout << "Nombre del propietario: ";
 	cin >> n;
-	cout << "Saldo incial";
+	cout << "Saldo incial: ";
 	cin >> b;
 	switch (op){
 	case 1:
@@ -43,6 +45,33 @@ void Agregar_Cuenta() {
 	default:
 		cout << "Numero ingresado no es valido"<<endl;
 		break;
+	}
+}
+void Realizar_Deposito() {
+	lcf->MostrarCuentas();
+	int nc;
+	string type = "";
+	double monto = 0;
+	cout << "Numero de cuenta para el deposito: " <<endl;
+	cin >> nc;
+	for ( int i = 0;i < lcf->getCuenta().size();i++){
+		if (lcf->getCuenta()[i]->getNumCuenta() == nc) {
+			CuentaBancaria* cb2 = lcf->getCuenta()[i];
+			if (typeid(*cb2) == typeid(CuentaAhorro)) {
+				cout << "Cantidad a depositar: "<<endl;
+				cin >> monto;
+				type = "Ahorro";
+				Transaccion<CuentaAhorro> * t = new Transaccion<CuentaAhorro> (dynamic_cast<CuentaAhorro*>(cb2), monto, type);
+				t->ejecutarTransaccion();
+			}
+			else if (typeid(*cb2) == typeid(CuentaCheque)) {
+				cout << "Cantidad a depositar: " << endl;
+				cin >> monto;
+				type = "Cheque";
+				Transaccion<CuentaCheque>* t = new Transaccion<CuentaCheque>(dynamic_cast<CuentaCheque*>(cb2), monto, type);
+				t->ejecutarTransaccion();
+			}
+		}
 	}
 }
 void eliminar_cuenta() {
@@ -75,6 +104,7 @@ int main(){//Inicio de programa
 			lcf->MostrarCuentas();
 			break;
 		case 5:
+			eliminar_cuenta();
 			break; //eliminar cuenta bancaria
 		case 6:
 			cout << "Gracias por utilizar mi programa";//salir de programa

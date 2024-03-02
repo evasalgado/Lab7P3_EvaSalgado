@@ -24,12 +24,20 @@ void BancoLCF::MostrarCuentas() {
 	}
 }
 void BancoLCF::eliminarCuenta(int numCuenta) {
-	for (int i = 0; i < cuentas.size(); i++){
-		CuentaBancaria* c = cuentas[i];
-		if (c->getNumCuenta() == numCuenta) {
-			cuentas.erase(cuentas.begin() + i);
+	if (cuentas.empty()){
+		cout << "no hay cuentas hechas"<<endl;
+	}else {
+		for (int i = 0; i < cuentas.size(); i++) {
+			CuentaBancaria* c = cuentas[i];
+			if (c->getNumCuenta() == numCuenta) {
+				cuentas.erase(cuentas.begin() + i);
+				cout << "Cuenta eliminada exitosamente"<<endl;
+			}
+			else {
+				cout << "Cuenta no encontrada" << endl;
 			}
 		}
+	}
 }
 BancoLCF::~BancoLCF() {
 	for (CuentaBancaria* c:cuentas) {

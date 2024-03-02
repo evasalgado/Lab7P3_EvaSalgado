@@ -11,13 +11,23 @@ double CuentaBancaria::getBalance() {
 	return balance;
 }
 void CuentaBancaria::setBalance(double &balance) {
-	this->balance = balance;
+	if (balance>=0&&balance<=100000){
+		this->balance = balance;
+	}
+	else {
+		throw invalid_argument("Saldo debe estar entre 0 a 100,000");
+	}
 }
 int CuentaBancaria::getNumCuenta() {
 	return NumCuenta;
 }
 void CuentaBancaria::setNumCuenta(int &NumCuenta) {
-	this->NumCuenta = NumCuenta;
+	if (NumCuenta>=1000&&NumCuenta<=9999)	{
+		this->NumCuenta = NumCuenta;
+	}
+	else {
+		throw invalid_argument("Numero ingresado invalido");
+	}
 }
 string CuentaBancaria::getNombre() {
 	return Nombre;
@@ -25,13 +35,13 @@ string CuentaBancaria::getNombre() {
 void CuentaBancaria::setNombre(string& Nombre) {
 	this->Nombre = Nombre;
 }
-void CuentaBancaria::depositar(double monto) const {
+void CuentaBancaria::depositar(double monto) {
 	monto = 0.0;
 }
-void CuentaBancaria::retirar(double monto) const {
+void CuentaBancaria::retirar(double monto) {
 	monto = 0.0;
 }
-void CuentaBancaria::imprimir() const{
+void CuentaBancaria::imprimir() {
 	cout << "Account number: "<<NumCuenta<<endl;
 	cout << "Owner: " << Nombre << endl;
 	cout << "Balance: " << balance << endl;

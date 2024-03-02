@@ -11,7 +11,12 @@ double CuentaAhorro::getTasaInteres() {
 	return TasaInteres;
 }
 void CuentaAhorro::setTasaInteres(double& TasaInteres) {
-	this->TasaInteres = TasaInteres;
+	if (TasaInteres>=10.0&&TasaInteres<=20.0) {
+		this->TasaInteres = TasaInteres;
+	}
+	else {
+		throw invalid_argument("Tasa de interes invalida");
+	}
 }
 void CuentaAhorro:: depositar(double monto) {
 	/*double b = this->balance;*/
